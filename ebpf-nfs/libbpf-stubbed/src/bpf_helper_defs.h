@@ -1390,10 +1390,10 @@ static long (*bpf_skb_change_head)(struct __sk_buff *skb, __u32 len,
 static __attribute__ ((noinline)) int bpf_xdp_adjust_head(struct xdp_md *xdp_md, int delta) {
   /* Simple stub for now that only moves data pointer without a check. We assume
    * programs don't use the metadata for now */
-  if(record_calls){
-    klee_trace_ret();
-    klee_add_bpf_call();
-  }
+//  if(record_calls){
+//    klee_trace_ret();
+//    klee_add_bpf_call();
+//  }
   xdp_md->data += delta;
   return 0;
 }
